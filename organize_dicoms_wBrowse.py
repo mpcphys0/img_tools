@@ -10,6 +10,7 @@ import pydicom
 import pprint
 import tkinter
 from tkinter import filedialog
+import subprocess
 
 root = tkinter.Tk()
 root.wm_attributes('-topmost', 1)
@@ -55,29 +56,25 @@ try:
                 shutil.copyfile(item, os.path.join(folderpath, imagename))
                 success_contents.append(item)
             except:
-                print("unknown error with item: {item}")
                 failed_contents.append(item)
         fail_count = len(failed_contents)
         success_count = len(success_contents)
         if success_count == 0 and os.path.exists(dest_dir):
-            print("true 1")
             os.rmdir(dest_dir)
             
         if len(failed_contents) > 0:
-            print("true2")
-            message = message + f"Failed {fail_count} items: \n"
-            print(message)
+            message = message + f"Failed to process {fail_count} of {len(dcms)} items: \n"
             for item in failed_contents:
                 message = message + f"{item} \n"
         if success_count > 0:
-            print("true3")
             message = message + f"Finished organizing files, see output folder: {dest_dir}" 
         if len(failed_contents) == 0 and len(success_contents) == len(dcms):
-            print("true4")
             tkinter.messagebox.showinfo(title="Success", message=message)
         if len(failed_contents) > 0:
-            print("true5")
             tkinter.messagebox.showwarning(title="Error",message=message)
+        # Open new files location: currently not enabled because requires Admin priviledges
+        # if success_count > 0:
+        #     subprocess.Popen(dest_dir)
 except:
     message = "Something went wrong..."
     tkinter.messagebox.showwarning(title="Error", message=message)
