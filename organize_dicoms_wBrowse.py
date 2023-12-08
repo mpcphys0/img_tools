@@ -72,9 +72,7 @@ try:
             tkinter.messagebox.showinfo(title="Success", message=message)
         if len(failed_contents) > 0:
             tkinter.messagebox.showwarning(title="Error",message=message)
-        # Open new files location: currently not enabled because requires Admin priviledges
-        # if success_count > 0:
-        #     subprocess.Popen(dest_dir)
+            os.startfile(dest_dir)
 except:
     message = "Something went wrong..."
     tkinter.messagebox.showwarning(title="Error", message=message)
