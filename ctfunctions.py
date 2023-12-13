@@ -139,13 +139,15 @@ transfer_syntaxes = [
     },
 ]
 
+
 def get_SOP_class(imgpath):
     try:
         img = pydicom.dcmread(imgpath)
-        sop_class = img[0x00080016].repval 
+        sop_class = img[0x00080016].repval
         return sop_class
     except:
         return f"error reading image file {os.path.basename(imgpath)}"
+
 
 def xy_from_polar(r: float, theta: float, midpoint: tuple[int, int]):
     """
@@ -388,7 +390,10 @@ def local_separate_name_images(src_path, dest_path):
                 if isinstance(img, pydicom.dicomdir.DicomDir):
                     print("Excluding DicomDir:", file)
                 elif not hasattr(img, "SliceLocation"):
-                    print(os.path.basename(file), " has no SliceLocation attribute, skipping...")
+                    print(
+                        os.path.basename(file),
+                        " has no SliceLocation attribute, skipping...",
+                    )
                 else:
                     img = handle_compression(img)
                     files_to_process.append(img)
@@ -1450,7 +1455,7 @@ def process_slice_zero(slice_dict, html_path):
         "Bottom Right": len(newvals[3]["xfiltered"]),
         "Average (mm)": newvals[-1]["avg"],
         "Nominal (mm)": float(slice_thickness),
-        "Avg difference from nominal (mm)": newvals[-1]["avg"] - float(slice_thickness)
+        "Avg difference from nominal (mm)": newvals[-1]["avg"] - float(slice_thickness),
     }
     barsdf_ = pd.DataFrame.from_dict(dfrows, orient="index")
     barsdf_.columns = ["No. Bars Counted"]
@@ -1523,7 +1528,13 @@ def process_slice_zero(slice_dict, html_path):
     mod1img3 = encode_figure(fig)
     plt.show()
 
-    cols = ["Mean (HU)", "Std Dev (HU)", "ACR lower limit", "ACR Upper Limit", "Evaluation"]
+    cols = [
+        "Mean (HU)",
+        "Std Dev (HU)",
+        "ACR lower limit",
+        "ACR Upper Limit",
+        "Evaluation",
+    ]
     indices = []
     entries = []
     for item in final_values:
@@ -1968,6 +1979,7 @@ def process_slice_eighty(slice_coords, html_path):
     entries2 = [(diststring, 100.0, errstring, dist_eval)]
     distdf = pd.DataFrame(entries2, index=indices2, columns=cols2)
     distdf_ = create_df(entries2, cols2, indices2, dec_places=1)
+    display(distdf)
     disttable = distdf_[1]
 
     template = Template(
@@ -2581,8 +2593,12 @@ def local_process_images(
     #         "something went wrong during processing... results may not be complete or available..."
     #     )
 
+
 def process_single_series_folder(
-    image_folder_path: str, report_directory: str, with_pdf=False, path_to_wkhtmltopdf=""
+    image_folder_path: str,
+    report_directory: str,
+    with_pdf=False,
+    path_to_wkhtmltopdf="",
 ):
     """
     Process ACR phantom images for series names found in `series` list. Calls `process_phantom()`
