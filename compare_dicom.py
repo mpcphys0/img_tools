@@ -11,7 +11,7 @@ def openloc(path):
 
 root = tkinter.Tk()
 root.wm_attributes('-topmost', 1)
-root.withdraw()  # use to hide tkinter window
+root.withdraw()  # hide tkinter root window
 message = ""
 
 currdir = os.getcwd()
@@ -120,7 +120,8 @@ if len(tempdir) == 2:
             newobj["z_same"] = "True"
         else:
             newobj["z_same"] = "False"
-            
+
+        #sort entries by tag# 
         keys = list(newobj.keys())
         keys.sort()
         sorted_newobj = {i: newobj[i] for i in keys}
@@ -140,6 +141,8 @@ if len(tempdir) == 2:
     message = message + f"{htmlpath} \n"
     message = message + f"{csvpath}"
     tkinter.messagebox.showinfo(title="Finished", message= message)
+    #Open file location , this command only works in windows. 
+    #Subprocess.Popen() is not available without admin priviledges
     os.startfile(destpath)
     
 # except:
