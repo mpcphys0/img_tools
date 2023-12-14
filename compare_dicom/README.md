@@ -3,7 +3,7 @@
 To work with Anaconda in Windows:
 Download and install from [https://www.anaconda.com/download](https://www.anaconda.com/download)
 
-Once Anaconda is installed, run the Anaconda Powershell Prompt application
+Once Anaconda is installed, run the Anaconda Powershell Prompt from the suite of applications.
 
 You should see (base) followed by PS and the current working directory at the prompt. You are working in the base environment. The environment.yml can be used to clone an environment with a particular set of python installation and packages:
 
@@ -25,6 +25,12 @@ Activate the newly created environment:
 ```
 
 Once the environment is activate, python scripts now have access to whichever version of Python is installed in that environment and also packages/libraries that have been installed.
+
+Show packages installed in current working environment:
+
+```powershell
+(new_environment_name) PS C:\> conda list
+```
 
 To deactivate an environment:
 
