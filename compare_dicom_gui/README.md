@@ -9,7 +9,6 @@ Place compare_dicom_gui.py in your preferred location for python scripts. Option
 ## Usage (windows)
 
 Place two dicom files to be compared into same directory
-
 Open a powershell or cmd window and run the .py file
 
 ```powershell
@@ -17,7 +16,6 @@ PS C:\path_to_python_script> python compare_dicom_gui.py
 ```
 
 Select the two dicom files to compare in the file browser window that pops up
-
 Comparison files (csv and HTML) will be generated in the parent directory where the image files are located
 
 ## Getting Started with Anaconda and Python
