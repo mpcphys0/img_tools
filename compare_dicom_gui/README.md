@@ -8,7 +8,7 @@ Place compare_dicom_gui.py in your preferred location for python scripts.
 
 Optionally, save image_processing_environment.yml for creating a python environment.
 
-If you want to use Anaconda for environment management see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
+For a guide on using Anaconda for environment management see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
 
 ## Usage (windows)
 
