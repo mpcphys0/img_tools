@@ -1,3 +1,9 @@
+# compare_dicom
+
+A simple tool to show two dicom headers side-by-side for easy comparison of tags and values
+
+## Getting Started
+
 ## Getting Started with Anaconda and Python
 
 To work with Anaconda in Windows:
