@@ -5,8 +5,7 @@ A simple tool to show two dicom headers side-by-side for easy comparison of tags
 ## Install
 
 Place compare_dicom.py in your preferred location for python scripts
-Optionally save image_processing_environment.yml for creating a python environment
-If you want to use Anaconda for environment management see the guide below
+Optionally save image_processing_environment.yml and create a conda environment with it (see notes at bottom for getting started with Anaconda)
 
 ## Usage (windows)
 
