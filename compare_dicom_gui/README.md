@@ -1,19 +1,24 @@
 # compare_dicom_gui
 
-A simple tool to show two dicom headers side-by-side for easy comparison of tags and values
+A simple GUI file select tool to compare the dicom header of two files side-by-side
 
 ## Install
 
 Place compare_dicom.py in your preferred location for python scripts
-Optionally save image_processing_environment.yml and create a conda environment with it (see notes at bottom for getting started with Anaconda)
+Optionally save image_processing_environment.yml for creating a python environment
+If you want to use Anaconda for environment management see the guide below
 
 ## Usage (windows)
 
+Place two dicom files to be compared into same directory
 Open a powershell or cmd window and run the .py file
 
 ```powershell
-PS C:\path_to_python_scripts> python compare_dicom.py
+PS C:\path_to_python_script> python compare_dicom_gui.py
 ```
+
+Select the two dicom files to compare in the file browser window that pops up
+Comparison files (csv and HTML) will be generated in the parent directory where the image files are located
 
 ## Getting Started with Anaconda and Python
 
