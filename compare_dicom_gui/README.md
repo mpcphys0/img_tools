@@ -6,7 +6,7 @@ A simple GUI file select tool to compare the dicom header of two files side-by-s
 
 Place compare_dicom_gui.py in your preferred location for python scripts.
 
-Optionally, save image_processing_environment.yml for creating a python environment.
+Optionally, save image_processing_environment.yml for creating a python environment
 
 For a guide on using Anaconda for environment management see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
 
