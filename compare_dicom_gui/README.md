@@ -21,12 +21,9 @@ Comparison files (csv and HTML) will be generated in the parent directory where 
 ## Getting Started with Anaconda and Python
 
 To work with Anaconda in Windows:
-Download and install from [https://www.anaconda.com/download](https://www.anaconda.com/download)
-
-Once Anaconda is installed, run the Anaconda Powershell Prompt from the suite of applications
-
-You should see (base) followed by PS and the current working directory at the prompt. You are working in the base environment
-
+Download and install from [https://www.anaconda.com/download](https://www.anaconda.com/download).
+Once Anaconda is installed, run the Anaconda Powershell Prompt from the suite of applications.
+You should see (base) followed by PS and the current working directory at the prompt. You are working in the base environment.
 The environment.yml can be used to clone an environment with a particular set of python installation and packages:
 
 ```powershell
