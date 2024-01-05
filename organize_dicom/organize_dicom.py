@@ -7,13 +7,11 @@ Created on Tue Nov  7 15:41:25 2023
 import os
 import shutil
 import pydicom
-import pprint
 import tkinter
 from tkinter import filedialog
-import subprocess
 
 root = tkinter.Tk()
-root.wm_attributes('-topmost', 1)
+root.wm_attributes("-topmost", 1)
 root.withdraw()  # use to hide tkinter window
 message = ""
 
@@ -27,16 +25,16 @@ try:
         srcdir = os.path.abspath(tempdir)
         basedir = os.path.dirname(srcdir)
         foldername = os.path.basename(srcdir)
-        dest_dir = os.path.join(basedir,f"{foldername}_organized")
+        dest_dir = os.path.join(basedir, f"{foldername}_organized")
         imgdir = srcdir
-       
+
         # ---------
         if dest_dir != "":
             if not os.path.exists(dest_dir):
                 os.makedirs(dest_dir)
-    
+
         dcms = [os.path.join(imgdir, x) for x in os.listdir(imgdir)]
-    
+
         contents = []
         failed_contents = []
         success_contents = []
@@ -50,7 +48,7 @@ try:
                 imagename = f"{seriesDesc}-{os.path.basename(item)}"
                 foldername = f"{seriesDesc}-{seriesInstanceUID}"
                 folderpath = os.path.join(dest_dir, foldername)
-    
+
                 if not os.path.exists(folderpath):
                     os.makedirs(folderpath)
                 shutil.copyfile(item, os.path.join(folderpath, imagename))
@@ -61,17 +59,21 @@ try:
         success_count = len(success_contents)
         if success_count == 0 and os.path.exists(dest_dir):
             os.rmdir(dest_dir)
-            
+
         if len(failed_contents) > 0:
-            message = message + f"Failed to process {fail_count} of {len(dcms)} items: \n"
+            message = (
+                message + f"Failed to process {fail_count} of {len(dcms)} items: \n"
+            )
             for item in failed_contents:
                 message = message + f"{item} \n"
         if success_count > 0:
-            message = message + f"Finished organizing files, see output folder: {dest_dir}" 
+            message = (
+                message + f"Finished organizing files, see output folder: {dest_dir}"
+            )
         if len(failed_contents) == 0 and len(success_contents) == len(dcms):
             tkinter.messagebox.showinfo(title="Success", message=message)
         if len(failed_contents) > 0:
-            tkinter.messagebox.showwarning(title="Error",message=message)
+            tkinter.messagebox.showwarning(title="Error", message=message)
             os.startfile(dest_dir)
 except:
     message = "Something went wrong..."

@@ -1,22 +1,21 @@
-# compare_dicom_gui
+# organize_dicom
 
 A simple GUI tool to organize a bulk folder of DICOM images into folders and images named according to Series Description.
 
 ## Install
 
-Place compare_dicom_gui.py in your preferred location for python scripts. Optionally, save image_processing_environment.yml for creating a python environment. For a guide on using Anaconda for environment management see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
+Place organize_dicom.py in your preferred location for python scripts. Optionally, save image_processing_environment.yml for creating a python environment. For a guide on using Anaconda for environment management see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
 
 ## Usage (windows)
 
-Place two dicom files to be compared into same directory
 Open a powershell or cmd window and run the .py file
 
 ```powershell
 PS C:\path_to_python_script> python compare_dicom_gui.py
 ```
 
-Select the two dicom files to compare in the file browser window that pops up
-Comparison files (csv and HTML) will be generated in the parent directory where the image files are located
+Browse for the desired folder <folder_to_organize> containing dicom images in the file browser window that pops up.
+A new folder called <folder_to_organize_organized> will be created in the same directory where <folder_to_organize> is located.
 
 ## Getting Started with Anaconda and Python
 
