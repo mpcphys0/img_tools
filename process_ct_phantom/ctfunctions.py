@@ -1,24 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle, Circle, RegularPolygon, Ellipse
+from matplotlib.patches import Rectangle, Circle
 import pydicom
 import cv2
 import sys
 import glob
-from pprint import pp
-from PIL import Image
 import os
 import pprint
 
 np.set_printoptions(threshold=sys.maxsize)
 import errno
 from scipy.ndimage import rotate
-from collections import defaultdict
-from itertools import groupby
 from types import SimpleNamespace
-from math import dist, degrees, radians
-from numpy import ones, vstack
-from numpy.linalg import lstsq
+from math import dist, radians
 import pandas as pd
 import pydash
 from scipy.signal import find_peaks
@@ -28,18 +22,12 @@ from pretty_html_table import build_table
 import re
 import zipfile
 import shutil
-import time
 import base64
 import io
 from jinja2 import Template
-from pdfkit import from_file
-from time import sleep
 import ipywidgets as widgets
-from pprint import pp
 from datetime import datetime
 import csv
-import string
-import random
 
 
 def test_print():
