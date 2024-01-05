@@ -43,7 +43,7 @@ Activate the newly created environment:
 (new_environment_name) PS C:\>
 ```
 
-Once the environment is activate, python scripts now have access to whichever version of Python is installed in that environment and also packages/libraries that have been installed.
+Once the environment is activated, python scripts now have access to whichever version of Python is installed in that environment and also packages/libraries that have been installed.
 
 Show packages installed in current working environment:
 
