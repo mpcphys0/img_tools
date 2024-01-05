@@ -12,7 +12,7 @@ Optionally, save image_processing_environment.yml for creating an Anaconda pytho
 
 ```yml
 pandas = "^2.1.4"
-- pydicom = "^2.4.3"
+pydicom = "^2.4.3"
 ```
 ## Usage (windows)
 
