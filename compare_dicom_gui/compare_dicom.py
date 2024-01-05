@@ -23,7 +23,7 @@ tempdir = filedialog.askopenfilenames(
 count = len(tempdir)
 
 try:
-    if count == 0 or count > 4:
+    if count < 2 or count > 4:
         message = f"Invalid Number of Files: Please select between 2 and 4 DICOM images for comparison..."
         tkinter.messagebox.showerror(title="Error", message=message)
 
