@@ -31,6 +31,7 @@ if count == 0 or count > 4:
 if count > 1:
     # set path of image1 and image2 to be compared
     path1 = tempdir[0]
+    destpath = os.path.dirname(path1)
     path2 = tempdir[1]
     filename1 = os.path.basename(path1)
     filename2 = os.path.basename(path2)
@@ -136,8 +137,6 @@ if count > 1:
 
     # use current working directory for output files, change if needed.
     # destpath = os.getcwd()
-
-    destpath = os.path.dirname(path1)
 
     # generate timestamp for filename
     now = datetime.now()
