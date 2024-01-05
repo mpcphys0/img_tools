@@ -10,9 +10,10 @@ Optionally, save image_processing_environment.yml for creating an Anaconda pytho
 
 ## Dependencies
 
-pandas >= 2.1.4
-pydicom >= 2.4.3
-
+```yml
+pandas = "^2.1.4"
+- pydicom = "^2.4.3"
+```
 ## Usage (windows)
 
 Place two to four dicom files to be compared into same directory. Open a powershell or cmd window and run the .py file (replacing <path-to-compare_dicom.py> with the full file path to where compare_dicom.py is saved):
