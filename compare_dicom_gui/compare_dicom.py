@@ -4,7 +4,6 @@ import os
 from datetime import datetime
 import tkinter
 from tkinter import filedialog
-import subprocess
 
 
 def openloc(path):
