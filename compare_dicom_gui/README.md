@@ -8,6 +8,11 @@ Save a copy of compare_dicom.py in your local system. Pydicom and Pandas package
 
 Optionally, save image_processing_environment.yml for creating an Anaconda python environment. For a guide on using Anaconda for environment management see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
 
+## Dependencies
+
+pandas >= 2.1.4
+pydicom >= 2.4.3
+
 ## Usage (windows)
 
 Place two to four dicom files to be compared into same directory
