@@ -21,12 +21,14 @@ tempdir = filedialog.askopenfilenames(
     parent=root, initialdir=currdir, title="Please select up to 4 DICOM image files"
 )
 
+count = len(tempdir)
+
 # try:
-if len(tempdir) == 0 or len(tempdir) > 4:
-    message = f"found {len(tempdir)} files..."
+if count == 0 or count > 4:
+    message = f"Invalid Number of Files: Please select between 2 and 4 DICOM images for comparison..."
     tkinter.messagebox.showerror(title="Error", message=message)
 
-if len(tempdir) > 1:
+if count > 1:
     # set path of image1 and image2 to be compared
     path1 = tempdir[0]
     path2 = tempdir[1]
@@ -69,12 +71,18 @@ if len(tempdir) > 1:
 
     recurse1(img1)
     recurse2(img2)
+    # list out tags and descriptions found in each image
     tags1 = [item["tag"] for item in list1]
     tags2 = [item["tag"] for item in list2]
     descs1 = [item["desc"] for item in list1]
     descs2 = [item["desc"] for item in list2]
+    # use set to remove duplicates
+    descs1 = set(descs1)
+    descs2 = set(descs2)
+    # get all possible tags from both images
+    tagsadded = tags1 + tags2
 
-    if len(tempdir) > 2:
+    if count > 2:
         path3 = tempdir[2]
         filename3 = os.path.basename(path3)
         img3 = pydicom.dcmread(path3)
@@ -94,7 +102,13 @@ if len(tempdir) > 1:
                         }
                     )
 
-        if len(tempdir) > 3:
+        recurse3(img3)
+        tags3 = [item["tag"] for item in list3]
+        descs3 = [item["desc"] for item in list3]
+        descs3 = set(descs3)
+        tagsadded = tagsadded + tags3
+
+        if count == 4:
             path4 = tempdir[3]
             filename4 = os.path.basename(path4)
             img4 = pydicom.dcmread(path4)
@@ -114,6 +128,12 @@ if len(tempdir) > 1:
                             }
                         )
 
+            recurse4(img4)
+            tags4 = [item["tag"] for item in list4]
+            descs4 = [item["desc"] for item in list4]
+            descs4 = set(descs4)
+            tagsadded = tagsadded + tags4
+
     # use current working directory for output files, change if needed.
     # destpath = os.getcwd()
 
@@ -123,32 +143,16 @@ if len(tempdir) > 1:
     now = datetime.now()
     timestamp = now.strftime("%m%d%y_%H%M%S")
 
-    recurse3(img3)
-    recurse4(img4)
-
-    # list out tags and descriptions found in each image
-
-    tags3 = [item["tag"] for item in list3]
-    tags4 = [item["tag"] for item in list4]
-
-    descs3 = [item["desc"] for item in list3]
-    descs4 = [item["desc"] for item in list4]
-
-    # use set to remove duplicates
-    descs1 = set(descs1)
-    descs2 = set(descs2)
-    descs3 = set(descs3)
-    descs4 = set(descs4)
-
     # get all possible tags from both images
-    tagsadded = tags1 + tags2 + tags3 + tags4
     addedset = set(tagsadded)
 
     # list those found in image1 and those found in image2
     foundIn1 = [x for x in tagsadded if x in tags1]
     foundIn2 = [x for x in tagsadded if x in tags2]
-    foundIn3 = [x for x in tagsadded if x in tags3]
-    foundIn4 = [x for x in tagsadded if x in tags4]
+    if count > 2:
+        foundIn3 = [x for x in tagsadded if x in tags3]
+    if count == 4:
+        foundIn4 = [x for x in tagsadded if x in tags4]
 
     # Build new list of (tag, description, image1value, image2value) filling "not present" where needed
     items1 = []
@@ -158,10 +162,18 @@ if len(tempdir) > 1:
             "desc": "Filename",
             "value1": filename1,
             "value2": filename2,
-            "value3": filename3,
-            "value4": filename4,
         }
     )
+    if count > 2:
+        items1[0]["value3"] = filename3
+    else:
+        items1[0]["value3"] = "none"
+
+    if count > 3:
+        items1[0]["value4"] = filename4
+    else:
+        items1[0]["value4"] = "none"
+
     for tag in addedset:
         newobj = {}
         if tag in foundIn1:
@@ -179,6 +191,7 @@ if len(tempdir) > 1:
             newobj["_tag"] = tag
             # newobj["repval1"] = "tag_not_present"
             newobj["value1"] = "tag_not_present"
+
         if tag in foundIn2:
             item = [item for item in list2 if item["tag"] == tag][0]
             newobj["_tag"] = tag
@@ -194,7 +207,7 @@ if len(tempdir) > 1:
             # newobj["repval2"] = "tag_not_present"
             newobj["value2"] = "tag_not_present"
 
-        if tag in foundIn3:
+        if count > 2 and tag in foundIn3:
             item = [item for item in list3 if item["tag"] == tag][0]
             newobj["_tag"] = tag
             newobj["desc"] = item["desc"]
@@ -209,7 +222,7 @@ if len(tempdir) > 1:
             # newobj["repval3"] = "tag_not_present"
             newobj["value3"] = "tag_not_present"
 
-        if tag in foundIn4:
+        if count > 3 and tag in foundIn4:
             item = [item for item in list4 if item["tag"] == tag][0]
             newobj["_tag"] = tag
             newobj["desc"] = item["desc"]
@@ -224,16 +237,39 @@ if len(tempdir) > 1:
             # newobj["repval4"] = "tag_not_present"
             newobj["value4"] = "tag_not_present"
 
-        if newobj["value1"] == newobj["value2"] == newobj["value3"] == newobj["value4"]:
-            newobj["z_same"] = "True"
-        else:
-            newobj["z_same"] = "False"
+        if count == 2:
+            if newobj["value1"] == newobj["value2"]:
+                newobj["z_same"] = "True"
+            else:
+                newobj["z_same"] = "False"
+        if count == 3:
+            if newobj["value1"] == newobj["value2"] == newobj["value3"]:
+                newobj["z_same"] = "True"
+            else:
+                newobj["z_same"] = "False"
+
+        if count == 4:
+            if (
+                newobj["value1"]
+                == newobj["value2"]
+                == newobj["value3"]
+                == newobj["value4"]
+            ):
+                newobj["z_same"] = "True"
+            else:
+                newobj["z_same"] = "False"
 
         # sort entries by tag#
         keys = list(newobj.keys())
         keys.sort()
         sorted_newobj = {i: newobj[i] for i in keys}
         items1.append(sorted_newobj)
+
+    if count < 4:
+        for item in items1:
+            del item["value4"]
+            if count < 3:
+                del item["value3"]
 
     # create dataframe for visualization, export to html and csv
     df = pd.DataFrame(items1)
