@@ -4,7 +4,7 @@ A simple GUI file select tool to compare the dicom header of two files side-by-s
 
 ## Install
 
-Save a copy of compare_dicom.py in your local system. Pydicom and Pandas packages are required to be installed.
+Save a copy of compare_dicom.py in your preferred local folder for python scripts (i.e. C:\python_scripts). Required packages are shown in next section.
 
 Optionally, save image_processing_environment.yml for creating an Anaconda python environment. For a guide on using Anaconda for environment management see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
 
@@ -15,15 +15,13 @@ pydicom >= 2.4.3
 
 ## Usage (windows)
 
-Place two to four dicom files to be compared into same directory
-Open a powershell or cmd window and run the .py file
+Place two to four dicom files to be compared into same directory. Open a powershell or cmd window and run the .py file (replacing <path-to-compare_dicom.py> with the full file path to where compare_dicom.py is saved):
 
 ```powershell
-PS C:\path_to_python_script> python compare_dicom_gui.py
+PS C:\> python <path-to-compare_dicom.py> 
 ```
 
-Select the files to be compared in the file browser window that pops up
-Comparison files (csv and HTML) will be generated in the directory where the image files are located
+Select the files to be compared in the file browser window that pops up. Comparison files (csv and HTML) will be generated in the directory where the image files are located
 
 ## Getting Started with Anaconda and Python
 
