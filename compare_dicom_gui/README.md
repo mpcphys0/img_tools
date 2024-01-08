@@ -1,6 +1,6 @@
 # compare_dicom
 
-A simple GUI file select tool to compare the dicom header of two files side-by-side
+A tool to compare the dicom header of up to four dicom image files side-by-side
 
 ## Install
 
@@ -16,7 +16,7 @@ pydicom = "^2.4.3"
 ```
 ## Usage (windows)
 
-Place two to four dicom files to be compared into same directory. Open a powershell or cmd window and run the .py file (replacing <path-to-compare_dicom.py> with the full file path to where compare_dicom.py is saved):
+Place two to four dicom files to be compared into same directory. Open a powershell or cmd window and run the .py file (replacing <path-to-compare_dicom.py> with the full file path to where compare_dicom.py is saved). You'll need to have Python installed along with the above dependencies:
 
 ```powershell
 PS C:\> python <path-to-compare_dicom.py> 
