@@ -22,7 +22,7 @@ Place two to four dicom files to be compared into same directory. Open a powersh
 PS C:\> python <path-to-compare_dicom.py> 
 ```
 
-Select the files to be compared in the file browser window that pops up. Comparison files (csv and HTML) will be generated in the directory where the image files are located
+A file browser window will appear. Select 2 to 4 dicom files to compare. Comparison files (csv and HTML) will be generated in the directory where the image files are located
 
 ## Getting Started with Anaconda and Python
 
