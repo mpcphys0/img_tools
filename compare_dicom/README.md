@@ -19,7 +19,7 @@ pydicom = "^2.4.3"
 Place two to four dicom files to be compared into same directory. Open a powershell or cmd window and run the .py file (replacing <path-to-compare_dicom.py> with the full file path to where compare_dicom.py is saved):
 
 ```powershell
-PS C:\> python <path-to-compare_dicom.py> 
+C:\> python <path-to-compare_dicom.py> 
 ```
 
 A file browser window will appear. Select 2 to 4 dicom files to compare. Comparison files (csv and HTML) will be generated in the directory where the image files are located
@@ -33,19 +33,19 @@ You should see (base) followed by PS and the current working directory at the pr
 The environment.yml can be used to clone an environment with a particular set of python installation and packages:
 
 ```powershell
-(base) PS C:\> conda env create -f <path\to\environment.yml> -n <new_environment_name>
+(base) C:\> conda env create -f <path\to\environment.yml> -n <new_environment_name>
 ```
 
 Show available environments:
 
 ```powershell
-(base) PS C:\> conda env list
+(base) C:\> conda env list
 ```
 
 Activate the newly created environment:
 
 ```powershell
-(base) PS C:\> conda activate new_environment_name
+(base) C:\> conda activate new_environment_name
 (new_environment_name) PS C:\>
 ```
 
@@ -54,12 +54,12 @@ Once the environment is activated, python scripts now have access to whichever v
 Show packages installed in current working environment:
 
 ```powershell
-(new_environment_name) PS C:\> conda list
+(new_environment_name) C:\> conda list
 ```
 
 To deactivate an environment:
 
 ```powershell
-(new_environment_name) PS C:\> conda deactivate new_environment_name
-(base) PS C:\>
+(new_environment_name) C:\> conda deactivate new_environment_name
+(base) C:\>
 ```
