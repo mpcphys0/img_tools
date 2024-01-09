@@ -13,13 +13,13 @@ Python and required package dependencies must be installed. See [Dependencies](#
 Open a powershell or cmd window and navigate to the location of the saved python files:
 
 ```powershell
-PS C:\> cd <path\to\python_scripts>
+cd <path\to\python_scripts>
 ```
 
 Run the program:
 
 ```powershell
-PS C:\path\to\python_scripts> python process_ct_folder.py
+python process_ct_folder.py
 ```
 
 The program will initialize and load ctfunctions.py. When this has completed, a file browser window will appear. Browse for the desired folder <images_folder> containing dicom images in the file browser window. A new folder called <images_folder_reports> will be created in the same folder where <images_folder> is located.
@@ -39,20 +39,19 @@ The environment.yml in this repository can be used to clone an environment with 
 Create a new environment and choose a name for it, replacing <C:\path\to\environment.yml> with the file path to the file on your local system and replacing <new_environment_name> with your desired name for this environment (i.e. gammex_processing):
 
 ```powershell
-(base) PS C:\> conda env create -f <path\to\environment.yml> -n <new_environment_name>
+conda env create -f <path\to\environment.yml> -n <new_environment_name>
 ```
 
 Show available environments:
 
 ```powershell
-(base) PS C:\> conda env list
+conda env list
 ```
 
 Activate the newly created environment:
 
 ```powershell
-(base) PS C:\> conda activate new_environment_name
-(new_environment_name) PS C:\>
+conda activate new_environment_name
 ```
 
 Once the environment is activated, python scripts now have access to whichever version of Python is installed in that environment and also packages/libraries that have been installed.
@@ -60,17 +59,16 @@ Once the environment is activated, python scripts now have access to whichever v
 Show packages installed in current working environment:
 
 ```powershell
-(new_environment_name) PS C:\> conda list
+conda list
 ```
 You should now be able to run python files with the python keyword:
 
 ```powershell
-(new_environment_name) PS C:\> python <program_name.py>
+python <program_name.py>
 ```
 
 To deactivate an environment:
 
 ```powershell
-(new_environment_name) PS C:\> conda deactivate new_environment_name
-(base) PS C:\>
+conda deactivate new_environment_name
 ```
