@@ -25,7 +25,9 @@ python process_ct_folder.py
 
 The program will initialize and load ctfunctions.py. When this has completed, a file browser window will appear. Browse for the desired folder <images_folder> containing dicom images in the file browser window. Click 'Select Folder' button and the program will run. Status messages will appear in the command prompt window.
 
-When the program finishes A new folder called <images_folder_reports> will be created in the same folder where <images_folder> is located. If the phantom has processed successfully, an HTML and CSV analysis report will be created in this folder. The reports will be named with format 'StudyDate_InstitutionName_SeriesDescription_Last 10DigitsOfSeriesInstanceUID_ct-rpt'
+When the program finishes A new folder called <images_folder_reports> will be created in the same folder where <images_folder> is located. If the phantom has processed successfully, an HTML and CSV analysis report will be created in this folder. The reports will be named with format:
+
+StudyDate_InstitutionName_SeriesDescription_Last 10DigitsOfSeriesInstanceUID_ct-rpt.filetype
 
 ## Dependencies
 The python code in this repository depends on a particular version of python and particular python packages being installed. Most people choose to use a package/environment management solution like Anaconda to handle this. The file 'environment.yml' is placed here in order to facilitate creating the correct environment with the correct packages for running this code. For a guide on getting setup with Anaconda, see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
