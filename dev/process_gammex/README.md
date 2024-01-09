@@ -4,7 +4,9 @@ A tool to process and analyze a single folder of ACR Gammex 464 CT phantom image
 
 ## Install
 
-Place ctfunctions.py and process_ct_folder.py in your preferred location for python scripts. Ensure that these two files are located in the same folder. See package dependencies in [Dependencies](#Dependencies) section. 
+Place ctfunctions.py and process_ct_folder.py in your preferred location for python scripts. Ensure that these two files are located in the same folder. 
+
+Python and required package dependencies must be installed. See [Dependencies](#Dependencies) section. 
 
 ## Usage (windows)
 
