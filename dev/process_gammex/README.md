@@ -30,8 +30,7 @@ When the program finishes, a new folder called <images_folder_reports> will be c
 StudyDate_InstitutionName_SeriesDescription_Last10DigitsOfSeriesInstanceUID_ct-rpt.filetype
 
 ## Dependencies
-The python code in this repository depends on a particular version of python and particular python packages being installed. Most people choose to use a package/environment management solution like Anaconda to handle this. The file 'environment.yml' is placed here in order to facilitate creating the correct environment with the correct packages for running this code. For a guide on getting setup with Anaconda, see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
-
+The python code in this repository depends on a particular version of python and particular python packages being installed. Most people choose to use a package/environment management solution like Anaconda to handle this. The file 'environment.yml' is placed here in order to facilitate creating the correct environment with the correct packages for running this code. For a guide on getting setup with Anaconda, see below:
 ## Getting Started with Anaconda and Python
 
 To work with Anaconda in Windows:
