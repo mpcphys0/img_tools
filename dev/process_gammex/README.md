@@ -4,7 +4,7 @@ A tool to process and analyze a single folder of ACR Gammex 464 CT phantom image
 
 ## Install
 
-Place ctfunctions.py and process_ct_folder_gui.py in your preferred location for python scripts. Ensure that these two files are located in the same directory. See package dependencies in next section. 
+Place ctfunctions.py and process_ct_folder.py in your preferred location for python scripts. Ensure that these two files are located in the same folder. See package dependencies in next section. 
 
 ## Dependencies
 
@@ -18,15 +18,14 @@ Open a powershell or cmd window and run the .py file. You'll need a functioning 
 PS C:\path_to_python_script> python process_ct_folder.py
 ```
 
-Browse for the desired folder <folder_to_organize> containing dicom images in the file browser window that pops up.
-A new folder called <folder_to_organize_organized> will be created in the same directory where <folder_to_organize> is located.
+The program will initialize and load ctfunctions.py. When this has completed, a file browser window will appear. Browse for the desired folder <images_folder> containing dicom images in the file browser window. A new folder called <images_folder_reports> will be created in the same folder where <images_folder> is located.
 
 ## Getting Started with Anaconda and Python
 
 To work with Anaconda in Windows:
 Download and install from [https://www.anaconda.com/download](https://www.anaconda.com/download).
 Once Anaconda is installed, run the Anaconda Powershell Prompt from the suite of applications.
-You should see (base) followed by PS and the current working directory at the prompt. You are working in the base environment.
+You should see (base) followed by PS and the current working folder at the prompt. You are working in the base environment.
 The environment.yml can be used to clone an environment with a particular set of python installation and packages:
 
 ```powershell
