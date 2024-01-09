@@ -13,7 +13,7 @@ Python and required package dependencies must be installed. See [Dependencies](#
 Open a powershell or cmd window and navigate to the location of the saved python files:
 
 ```powershell
-cd <path\to\python_scripts>
+cd path\to\python_scripts
 ```
 
 Run the program:
@@ -39,7 +39,7 @@ The environment.yml in this repository can be used to clone an environment with 
 Create a new environment and choose a name for it, replacing <C:\path\to\environment.yml> with the file path to the file on your local system and replacing <new_environment_name> with your desired name for this environment (i.e. gammex_processing):
 
 ```powershell
-conda env create -f <path\to\environment.yml> -n <new_environment_name>
+conda env create -f path\to\environment.yml -n new_environment_name
 ```
 
 Show available environments:
