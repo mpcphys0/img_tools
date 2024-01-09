@@ -25,7 +25,7 @@ python process_ct_folder.py
 
 The program will initialize and load ctfunctions.py. When this has completed, a file browser window will appear. Browse for the desired folder <images_folder> containing dicom images in the file browser window. Click 'Select Folder' button and the program will run. Status messages will appear in the command prompt window.
 
-When the program finishes A new folder called <images_folder_reports> will be created in the same folder where <images_folder> is located. If the phantom has processed successfully, an HTML and CSV analysis report will be created in this folder. The reports will be named with format:
+When the program finishes, a new folder called <images_folder_reports> will be created in the same folder where <images_folder> is located. If the phantom has processed successfully, an HTML and CSV analysis report will be created in this folder. The reports will be named with format:
 
 StudyDate_InstitutionName_SeriesDescription_Last10DigitsOfSeriesInstanceUID_ct-rpt.filetype
 
