@@ -1,21 +1,21 @@
-# organize_dicom
+# process_ct_folder
 
 A tool to process and analyze a single folder of ACR Gammex 464 CT phantom images.
 
 ## Install
 
-Place ctfunctions.py and process_ct_folder_gui.py in your preferred location for python scripts. See package dependencies in next section. Optionally, save image_processing_environment.yml for creating a python environment. For a guide on using Anaconda for environment management see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
+Place ctfunctions.py and process_ct_folder_gui.py in your preferred location for python scripts. Ensure that these two files are located in the same directory. See package dependencies in next section. 
 
 ## Dependencies
 
-Refer to environment.yml
+Refer to environment.yml. Optionally, save image_processing_environment.yml for creating an anaconda environment. For a guide on using Anaconda for environment management see [Getting Started with Anaconda and Python](#getting-started-with-anaconda-and-python)
 
 ## Usage (windows)
 
-Open a powershell or cmd window and run the .py file
+Open a powershell or cmd window and run the .py file. You'll need a functioning python installation and the file path to the location of process_ct_folder.py.
 
 ```powershell
-PS C:\path_to_python_script> python compare_dicom_gui.py
+PS C:\path_to_python_script> python process_ct_folder.py
 ```
 
 Browse for the desired folder <folder_to_organize> containing dicom images in the file browser window that pops up.
