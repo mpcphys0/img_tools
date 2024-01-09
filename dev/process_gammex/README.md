@@ -36,7 +36,7 @@ Once Anaconda Navigator is installed, open it and then run the 'Anaconda Powersh
 You should see (base) followed by PS and the current working folder at the prompt. You are working in the base environment.
 The environment.yml in this repository can be used to clone an environment with the correct python packages needed for running the .py files in this repository.
 
-Create a new environment and choose a name for it, replacing <C:\path\to\environment.yml> with the file path to the file on your local system and replacing <new_environment_name> with your desired name for this environment (i.e. gammex_processing):
+Create a new environment and choose a name for it, replacing <path\to\environment.yml> with the file path to the file on your local system and replacing <new_environment_name> with your desired name for this environment (i.e. gammex_processing):
 
 ```powershell
 conda env create -f path\to\environment.yml -n new_environment_name
