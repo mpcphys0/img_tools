@@ -35,10 +35,7 @@ The python code in this repository depends on a particular version of python and
 
 To work with Anaconda in Windows:
 Download and install from [https://www.anaconda.com/download](https://www.anaconda.com/download).
-You'll want to add Anaconda to the system PATH variable when prompted. This allows the command line to recognize and run programs by name like 'conda' and 'python'.
-Once Anaconda Navigator is installed, open it and then run the 'Anaconda Powershell Prompt' from the suite of applications.
-You should see (base) followed by PS and the current working folder at the prompt. You are working in the base environment.
-The environment.yml in this repository can be used to clone an environment with the correct python packages needed for running the .py files in this repository.
+You'll want to add Anaconda to the system PATH variable when prompted. You will need administrator priveleges. This allows the command line to recognize and run programs by name like 'conda' and 'python'. Once Anaconda Navigator is installed, open it and then run the 'Anaconda Powershell Prompt' from the suite of applications. You should see (base) followed by PS and the current working folder at the prompt. You are working in the base environment. The environment.yml in this repository can be used to clone an environment with the correct python packages needed for running the .py files in this repository.
 
 Create a new environment and choose a name for it, replacing <path\to\environment.yml> with the file path to the file on your local system and replacing <new_environment_name> with your desired name for this environment (i.e. gammex_processing):
 
