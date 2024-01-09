@@ -69,7 +69,7 @@ conda list
 You should now be able to run python files with the python keyword:
 
 ```powershell
-python <program_name.py>
+python program_name.py
 ```
 
 To deactivate an environment:
