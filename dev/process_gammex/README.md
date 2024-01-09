@@ -26,7 +26,9 @@ Download and install from [https://www.anaconda.com/download](https://www.anacon
 You'll want to add Anaconda to the system PATH variable when prompted. This allows the command line to recognize and run programs by name like 'conda' and 'python'.
 Once Anaconda Navigator is installed, open it and then run the 'Anaconda Powershell Prompt' from the suite of applications.
 You should see (base) followed by PS and the current working folder at the prompt. You are working in the base environment.
-The environment.yml in this repository can be used to clone an environment with the correct python packages needed for running the .py files in this repository:
+The environment.yml in this repository can be used to clone an environment with the correct python packages needed for running the .py files in this repository.
+
+Create a new environment and choose a name for it, replacing <C:\path\to\environment.yml> with the file path to the file on your local system and replacing <new_environment_name> with your desired name for this environment (i.e. gammex_processing):
 
 ```powershell
 (base) PS C:\> conda env create -f <path\to\environment.yml> -n <new_environment_name>
@@ -51,6 +53,11 @@ Show packages installed in current working environment:
 
 ```powershell
 (new_environment_name) PS C:\> conda list
+```
+You should now be able to run python files with the python keyword:
+
+```powershell
+(new_environment_name) PS C:\> python <program_name.py>
 ```
 
 To deactivate an environment:
