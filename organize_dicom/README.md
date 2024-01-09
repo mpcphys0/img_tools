@@ -4,11 +4,13 @@ A simple GUI tool to organize a bulk folder of DICOM images into folders and ima
 
 ## Install
 
-Place organize_dicom.py in your preferred location for python scripts. See package dependencies in next section. Optionally, save image_processing_environment.yml for creating a python environment. 
+Place organize_dicom.py in your preferred location for python scripts. Python and pydicom will need to be installed and working (see next section).
 
 ## Dependencies
 
 pydicom >= 2.4.3
+
+
 
 ## Usage (windows)
 
