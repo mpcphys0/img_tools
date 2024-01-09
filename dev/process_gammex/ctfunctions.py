@@ -31,7 +31,7 @@ import csv
 
 
 def test_print():
-    print("ctfunctions.py connected and working", "\U0001F60E")
+    print("ctfunctions.py connected and working")
 
 
 transfer_syntaxes = [
@@ -233,7 +233,7 @@ def get_filtered_peaks(
         ax1.axis("Off")
     mod1img1 = encode_figure(fig1)
     mod1img2 = encode_figure(fig2)
-    plt.show()
+    # plt.show()
 
     avg = np.mean(lengths)
     results.append({"avg": avg})
@@ -1222,9 +1222,9 @@ def generate_first_page(img, report_directory):
     )
 
     main_title = Markdown("## ACR CT Phantom Analysis Report")
-    display(main_title)
-    display(df_)
-    display(Markdown('<hr style="width:800px;margin:5px auto 5px 0px;"></hr>'))
+    # display(main_title)
+    # display(df_)
+    # display(Markdown('<hr style="width:800px;margin:5px auto 5px 0px;"></hr>'))
 
     report_path = os.path.join(report_directory, "ct-report.html")
     Func = open(report_path, "w+")
@@ -1321,9 +1321,9 @@ def local_generate_first_page(img, report_directory):
     )
 
     main_title = Markdown("## ACR CT Phantom Analysis Report")
-    display(main_title)
-    display(df_)
-    display(Markdown('<hr style="width:800px;margin:5px auto 5px 0px;"></hr>'))
+    # display(main_title)
+    # display(df_)
+    # display(Markdown('<hr style="width:800px;margin:5px auto 5px 0px;"></hr>'))
 
     Func = open(rpt_path, "w+")
     Func.write("<h4>CT Phantom Analysis Report</h4>")
@@ -1404,15 +1404,15 @@ def process_slice_zero(slice_dict, html_path):
     lpBotR2_xy = xy_from_polar(lpBotR2_polar[0], lpBotR2_polar[1], midpoint)
     lpBotR1_xy = xy_from_polar(lpBotR1_polar[0], lpBotR1_polar[1], midpoint)
 
-    display(Markdown('<p style="page-break-before: always"></p>'))
-    display(Markdown("## Module 0"))
-    display(Markdown("### Slice Thickness"))
-    display(
-        Markdown(
-            f"Line profiles are obtained across the slice thickness ramp bars as shown. "
-        )
-    )
-    display(Markdown(f"Bars with >50% signal are counted and averaged.."))
+    # display(Markdown('<p style="page-break-before: always"></p>'))
+    # display(Markdown("## Module 0"))
+    # display(Markdown("### Slice Thickness"))
+    # display(
+    #     Markdown(
+    #         f"Line profiles are obtained across the slice thickness ramp bars as shown. "
+    #     )
+    # )
+    # display(Markdown(f"Bars with >50% signal are counted and averaged.."))
 
     # returns peaks data followed by 2 base64 encoded image dataURIs for placing in html report
     newvals, mod1img1, mod1img2 = get_filtered_peaks(
@@ -1451,9 +1451,9 @@ def process_slice_zero(slice_dict, html_path):
     barsdf_ = barsdf_.style.format("{:.2f}").hide(
         subset=None, level=None, names=False, axis=1
     )
-    display(Markdown("### Bar Count Results:"))
-    display(barsdf_)
-    display(Markdown('<p style="page-break-before: always"></p>'))
+    # display(Markdown("### Bar Count Results:"))
+    # display(barsdf_)
+    # display(Markdown('<p style="page-break-before: always"></p>'))
     dftable = build_table(barsdf, "blue_light", index=True)
     pixels = adjpx.copy()
     roi_area = 200
@@ -1514,7 +1514,7 @@ def process_slice_zero(slice_dict, html_path):
     ax.axis("Off")
 
     mod1img3 = encode_figure(fig)
-    plt.show()
+    # plt.show()
 
     cols = [
         "Mean (HU)",
@@ -1551,7 +1551,7 @@ def process_slice_zero(slice_dict, html_path):
         .format({"Mean (HU)": "{:.1f}", "Std Dev (HU)": "{:.1f}"})
         .set_table_styles([dict(selector="th", props=[("text-align", "center")])])
     )
-    display(ctdf_)
+    # display(ctdf_)
 
     template = Template(
         """
@@ -1617,7 +1617,7 @@ def process_slice_forty(slice_coords, html_path):
     midpoint = (int(midx), int(midy))
     md = np.sqrt((topx - midx) ** 2 + (topy - midy) ** 2)
 
-    display(Markdown("### Module 2 Visual Analysis"))
+    # display(Markdown("### Module 2 Visual Analysis"))
     plt.figure(figsize=(10, 10))
     plt.axis("Off")
     plt.imshow(
@@ -1626,8 +1626,8 @@ def process_slice_forty(slice_coords, html_path):
         vmin=(50 - resc_int) / resc_slope,
         vmax=(150 - resc_int) / resc_slope,
     )
-    plt.show()
-    display(Markdown("Diameter of smallest rods visible (mm): _______"))
+    # plt.show()
+    # display(Markdown("Diameter of smallest rods visible (mm): _______"))
 
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.axis("Off")
@@ -1777,7 +1777,7 @@ def process_slice_forty(slice_coords, html_path):
             linewidth=1.5,
         )
     )
-    plt.show()
+    # plt.show()
     mod2img2 = encode_figure(fig)
     maskbig = np.uint8(np.zeros(pixels.shape))
     cv2.circle(maskbig, (bigx, bigy), int(roi_radius), color=(255), thickness=-1)
@@ -1837,7 +1837,7 @@ def process_slice_forty(slice_coords, html_path):
         .set_table_styles([dict(selector="th", props=[("text-align", "center")])])
     )
     Markdown("#### Module 2 ROI Analysis")
-    display(cnrdf)
+    # display(cnrdf)
     cnrtable = build_table(cnrcopy, "blue_light", index=True)
 
     template = Template(
@@ -1890,8 +1890,8 @@ def process_slice_eighty(slice_coords, html_path):
     fig1, ax1 = plt.subplots(figsize=(10, 10))
     ax1.axis("Off")
     ax1.imshow(pixels, cmap="gray", vmin=-50 - resc_int, vmax=50 - resc_int)
-    plt.show()
-    display(Markdown("### Artifact Evaluation Result: ______"))
+    # plt.show()
+    # display(Markdown("### Artifact Evaluation Result: ______"))
     mod3img1 = encode_figure(fig1)
 
     roi_radius_mm = np.sqrt(400 / np.pi)
@@ -1925,7 +1925,7 @@ def process_slice_eighty(slice_coords, html_path):
             pixels, item, roi_radius, ax2, resc_int, resc_slope
         )
         vals_list.append(vals)
-    plt.show()
+    # plt.show()
     mod3img2 = encode_figure(fig2)
     center_mean = vals_list[0][0]
     diffs = []
@@ -1944,7 +1944,7 @@ def process_slice_eighty(slice_coords, html_path):
         entries.append(new)
     unifdf_ = create_df(entries, cols, indices)
     unifdf = pd.DataFrame(entries, index=indices, columns=cols)
-    display(unifdf_[0])
+    # display(unifdf_[0])
     uniftable = unifdf_[1]
     fig3, ax3 = plt.subplots(figsize=(10, 10))
 
@@ -1958,7 +1958,7 @@ def process_slice_eighty(slice_coords, html_path):
         dist_eval = "Pass"
     else:
         dist_eval = "Fail"
-    plt.show()
+    # plt.show()
     mod3img3 = encode_figure(fig3)
     cols2 = ("Measured (mm)", "Nominal (mm)", "Difference (mm)", "Evaluation")
     indices2 = ["Distance between BBs"]
@@ -1967,7 +1967,7 @@ def process_slice_eighty(slice_coords, html_path):
     entries2 = [(diststring, 100.0, errstring, dist_eval)]
     distdf = pd.DataFrame(entries2, index=indices2, columns=cols2)
     distdf_ = create_df(entries2, cols2, indices2, dec_places=1)
-    display(distdf)
+    # display(distdf)
     disttable = distdf_[1]
 
     template = Template(
@@ -2039,14 +2039,14 @@ def process_slice_onetwenty(slice_coords, html_path):
     midpoint, phantom_radius, rot_angle = get_midpoint_and_rotation(top, bot)
     lineshift = int(phantom_radius * 0.04)
     midx, midy = midpoint
-    display(Markdown("### Module 4 Visual Analysis"))
+    # display(Markdown("### Module 4 Visual Analysis"))
     fig0, ax0 = plt.subplots(figsize=(10, 10))
     ax0.axis("Off")
     ax0.imshow(pixels, cmap="gray", vmin=1050 - resc_int, vmax=1150 - resc_int)
-    plt.show()
+    # plt.show()
     mod4img1 = encode_figure(fig0)
-    display(Markdown("Smallest Pattern Visible (lp/cm): _______"))
-    display(Markdown('<p style="page-break-after: always"></p>'))
+    # display(Markdown("Smallest Pattern Visible (lp/cm): _______"))
+    # display(Markdown('<p style="page-break-after: always"></p>'))
 
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.axis("Off")
@@ -2054,7 +2054,7 @@ def process_slice_onetwenty(slice_coords, html_path):
     angles = [45, 90, 135, 180, 225, 270, 315, 360]
     roistats = []
     profiles = []
-    display(Markdown("#### Module 4 line / circle ROI analysis"))
+    # display(Markdown("#### Module 4 line / circle ROI analysis"))
     for idx, angle in enumerate(angles):
         polar = (0.705 * phantom_radius, rot_angle - radians(angle))
         pt = xy_from_polar(polar[0], polar[1], midpoint)
@@ -2105,8 +2105,8 @@ def process_slice_onetwenty(slice_coords, html_path):
     modcopy = moddf.copy()
     moddf_ = create_df(values, cols, indices, dec_places=2)
     modtable = build_table(df=modcopy, color="blue_light", index=True)
-    display(moddf_[0])
-    plt.show()
+    # display(moddf_[0])
+    # plt.show()
     fig2, ax2 = plt.subplots(4, 2, sharey=True)
     fig2.set_size_inches(12, 8)
     fig2.text(0.04, 0.5, "CT Number (HU)", va="center", rotation="vertical")
@@ -2135,7 +2135,7 @@ def process_slice_onetwenty(slice_coords, html_path):
     ax3.set_title(f"Circle ROI Modulation vs. Line Pair Frequency")
     ax3.set_ylabel("Modulation\n(max-min)/(max+min)")
     ax3.set_xlabel("Bar Pattern Line Pairs/cm")
-    plt.show()
+    # plt.show()
     mod4img4 = encode_figure(fig3)
 
     template = Template(
@@ -2600,6 +2600,7 @@ def process_single_series_folder(
 
     """
     try:
+        print("processing phantom images...")
         seriespath = image_folder_path
         slices = get_slices(seriespath)
         slice_coords = get_slice_coordinates(slices)
