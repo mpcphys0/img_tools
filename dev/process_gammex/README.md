@@ -10,10 +10,16 @@ Python and required package dependencies must be installed. See [Dependencies](#
 
 ## Usage (windows)
 
-Open a powershell or cmd window and run the .py file:
+Open a powershell or cmd window and navigate to the location of the saved python files:
 
 ```powershell
-PS C:\path_to_python_scripts_folder> python process_ct_folder.py
+PS C:\> cd <path\to\python_scripts>
+```
+
+Run the program:
+
+```powershell
+PS C:\path\to\python_scripts> python process_ct_folder.py
 ```
 
 The program will initialize and load ctfunctions.py. When this has completed, a file browser window will appear. Browse for the desired folder <images_folder> containing dicom images in the file browser window. A new folder called <images_folder_reports> will be created in the same folder where <images_folder> is located.
