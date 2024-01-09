@@ -24,29 +24,30 @@ C:\> python <path-to-compare_dicom.py>
 
 A file browser window will appear. Select 2 to 4 dicom files to compare. Comparison files (csv and HTML) will be generated in the directory where the image files are located
 
+## Dependencies
+The python code in this repository depends on a particular version of python and particular python packages being installed. Most people choose to use a package/environment management solution like Anaconda to handle this. The file 'environment.yml' is placed here in order to facilitate creating the correct environment with the correct packages for running this code. For a guide on getting setup with Anaconda, see below:
 ## Getting Started with Anaconda and Python
 
 To work with Anaconda in Windows:
 Download and install from [https://www.anaconda.com/download](https://www.anaconda.com/download).
-Once Anaconda is installed, run the Anaconda Powershell Prompt from the suite of applications.
-You should see (base) followed by PS and the current working directory at the prompt. You are working in the base environment.
-The environment.yml can be used to clone an environment with a particular set of python installation and packages:
+You'll want to add Anaconda to the system PATH variable when prompted. You will need administrator priveleges. This allows the command line to recognize and run programs by name like 'conda' and 'python'. Once Anaconda Navigator is installed, open it and then run the 'Anaconda Powershell Prompt' from the suite of applications. You should see (base) followed by PS and the current working folder at the prompt. You are working in the base environment. The environment.yml in this repository can be used to clone an environment with the correct python packages needed for running the .py files in this repository.
+
+Create a new environment and choose a name for it, replacing <path\to\environment.yml> with the file path to the file on your local system and replacing <new_environment_name> with your desired name for this environment (i.e. gammex_processing):
 
 ```powershell
-(base) C:\> conda env create -f <path\to\environment.yml> -n <new_environment_name>
+conda env create -f path\to\environment.yml -n new_environment_name
 ```
 
 Show available environments:
 
 ```powershell
-(base) C:\> conda env list
+conda env list
 ```
 
 Activate the newly created environment:
 
 ```powershell
-(base) C:\> conda activate new_environment_name
-(new_environment_name) PS C:\>
+conda activate new_environment_name
 ```
 
 Once the environment is activated, python scripts now have access to whichever version of Python is installed in that environment and also packages/libraries that have been installed.
@@ -54,12 +55,16 @@ Once the environment is activated, python scripts now have access to whichever v
 Show packages installed in current working environment:
 
 ```powershell
-(new_environment_name) C:\> conda list
+conda list
+```
+You should now be able to run python files with the python keyword:
+
+```powershell
+python program_name.py
 ```
 
 To deactivate an environment:
 
 ```powershell
-(new_environment_name) C:\> conda deactivate new_environment_name
-(base) C:\>
+conda deactivate new_environment_name
 ```
