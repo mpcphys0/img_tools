@@ -24,9 +24,9 @@ The program will initialize and load ctfunctions.py. When this has completed, a 
 
 To work with Anaconda in Windows:
 Download and install from [https://www.anaconda.com/download](https://www.anaconda.com/download).
-Once Anaconda is installed, run the Anaconda Powershell Prompt from the suite of applications.
+Once Anaconda is installed, run the Anaconda Powershell Prompt from the suite of applications in Anaconda Navigator.
 You should see (base) followed by PS and the current working folder at the prompt. You are working in the base environment.
-The environment.yml can be used to clone an environment with a particular set of python installation and packages:
+The environment.yml in this repository can be used to clone an environment with the correct python packages needed for running the .py files in this repository...:
 
 ```powershell
 (base) PS C:\> conda env create -f <path\to\environment.yml> -n <new_environment_name>
