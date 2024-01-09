@@ -9,7 +9,7 @@ Place ctfunctions.py and process_ct_folder.py in your preferred location for pyt
 Python and required package dependencies must be installed. See [Dependencies](#Dependencies) section. 
 
 ## Usage (windows)
-The folder of phantom images to be processed should contain only DICOM images of axial slices of the ACR phantom. Slice locations showing Module 0 and Module 4 BBs must be present in the set of images, as the program searches for these BBs to determine phantom positioning.
+The folder of phantom images to be processed should contain only DICOM images of axial slices of the ACR phantom. Slices should cover the length of the phantom from Module 0 to Module 4 centers. (Slice locations showing Module 0 and Module 4 BBs must be present in the set of images, as the program searches for these BBs to determine phantom positioning.)
 
 Open a powershell or cmd window and navigate to the location of the saved python files:
 
