@@ -10,7 +10,7 @@ Python and required package dependencies must be installed. See [Dependencies](#
 
 ## Usage (windows)
 
-Once python and package dependencies have been installed (see notes below), open a powershell or cmd window and run the .py file:
+Open a powershell or cmd window and run the .py file:
 
 ```powershell
 PS C:\path_to_python_script> python process_ct_folder.py
